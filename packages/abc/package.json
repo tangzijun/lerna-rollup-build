@@ -1,0 +1,10 @@
+{
+  "name": "@test/abc",
+  "version": "0.0.0",
+  "main": "dist/index.es.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ]
+}
