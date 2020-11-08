@@ -5,7 +5,6 @@ import { edf } from "@test/edf";
 
 function App() {
   const test = edf();
-  console.info("test!!!-----:", test);
   return (
     <div className="App">
       <header className="App-header">

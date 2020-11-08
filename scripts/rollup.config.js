@@ -1,28 +1,62 @@
 const rollup = require("rollup");
 const { babel } = require("@rollup/plugin-babel");
+const strip = require("@rollup/plugin-strip");
 const typescript = require("rollup-plugin-typescript2");
+const { terser } = require("rollup-plugin-terser");
+const postcss = require("rollup-plugin-postcss");
+const babelConfig = require("./babel.config");
+const ENV = require("./env");
+const Util = require("./util");
+
+// https://github.com/ezolenko/rollup-plugin-typescript2
+const IGNORE_WARNING_CODE = ["UNRESOLVED_IMPORT", "CIRCULAR_DEPENDENCY"];
+const EXTENSIONS = [".ts", ".tsx", ".js", ".jsx"];
 
 function getRollupConfig(config) {
-  const { inputPath, outputFile, tsconfig, bundleType } = config;
+  const { inputFile, outputFile, tsconfig, bundleType } = config;
   const inputOptions = {
-    input: inputPath,
+    input: inputFile,
     plugins: [
+      babel({
+        babelrc: false,
+        babelHelpers: "bundled",
+        exclude: "node_modules/**",
+        extensions: EXTENSIONS,
+        ...babelConfig,
+      }),
+      postcss({
+        autoModules: true,
+      }),
       typescript({
         tsconfig,
         abortOnError: false,
         clean: false,
         check: false,
       }),
-      babel({
-        babelHelpers: "bundled",
-        exclude: "node_modules/**",
-      }),
+      ENV.isProdEnv() &&
+        strip({
+          include: [],
+          debugger: true,
+          functions: ["console.*", "assert.*"],
+        }),
     ],
+    onwarn: (warning, warn) => {
+      console.info(
+        "warning:",
+        warning.code,
+        IGNORE_WARNING_CODE.indexOf(warning.code)
+      );
+      if (IGNORE_WARNING_CODE.indexOf(warning.code) != -1) return;
+      if (warning.code === "NON_EXISTENT_EXPORT")
+        throw new Error(warning.message);
+      warn(warning);
+    },
   };
 
   const outputOptions = {
     file: outputFile,
     format: bundleType,
+    plugins: [ENV.isProdEnv() && terser()],
   };
 
   const watchOptions = {
@@ -38,10 +72,6 @@ function getRollupConfig(config) {
   };
 }
 
-const showBuildLog = (type, ...arg) => {
-  console.log(`[ build ] ${type} `, ...arg);
-};
-
 function build(configs, isWatch) {
   return new Promise((resolve) => {
     let buildSuccessNum = 0;
@@ -49,15 +79,15 @@ function build(configs, isWatch) {
 
     configs.forEach((pkgConfig) => {
       const { pkgName } = pkgConfig;
-      showBuildLog("准备编译", `> packageName : ${pkgName}`);
+      Util.showBuildLog("准备编译", `> packageName : ${pkgName}`);
     });
 
     const onBuildPkgEnd = () => {
       buildSuccessNum++;
       if (buildSuccessNum >= buildTotal) {
-        showBuildLog("全部编译结束");
+        Util.showBuildLog("全部编译结束");
         if (isWatch) {
-          showBuildLog("已开启热更新,监听中...");
+          Util.showBuildLog("已开启热更新,监听中...");
         }
         resolve();
       }
@@ -87,16 +117,16 @@ function onWatcher(watcher, isWatch, pkgName) {
     watcher.on("event", (event) => {
       const { code } = event;
       if (code === "BUNDLE_START") {
-        showBuildLog("开始编译", pkgName);
+        Util.showBuildLog("开始编译", pkgName);
       } else if (code === "BUNDLE_END") {
         const { duration } = event;
-        showBuildLog("编译成功", pkgName, `, 耗时: `, duration);
+        Util.showBuildLog("编译成功", pkgName, `, 耗时: `, duration);
         resolve();
         if (!isWatch) {
           watcher.close();
         }
       } else if (code === "ERROR" || code === "FATAL") {
-        showBuildLog("错误", event);
+        Util.showBuildLog("错误", event);
         if (!isWatch) {
           watcher.close();
         }
