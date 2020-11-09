@@ -3,10 +3,12 @@ const { babel } = require("@rollup/plugin-babel");
 const strip = require("@rollup/plugin-strip");
 const typescript = require("rollup-plugin-typescript2");
 const { terser } = require("rollup-plugin-terser");
+const progress = require("rollup-plugin-progress");
 const postcss = require("rollup-plugin-postcss");
 const babelConfig = require("./babel.config");
 const ENV = require("./env");
 const Util = require("./util");
+const shell = require("shelljs");
 
 // https://github.com/ezolenko/rollup-plugin-typescript2
 const IGNORE_WARNING_CODE = ["UNRESOLVED_IMPORT", "CIRCULAR_DEPENDENCY"];
@@ -17,8 +19,18 @@ function getRollupConfig(config) {
   const inputOptions = {
     input: inputFile,
     plugins: [
+      typescript({
+        tsconfig,
+        abortOnError: false,
+        clean: true,
+        check: false,
+      }),
+      progress({
+        clearLine: true,
+      }),
       babel({
         babelrc: false,
+        inputSourceMap: true,
         babelHelpers: "bundled",
         exclude: "node_modules/**",
         extensions: EXTENSIONS,
@@ -26,12 +38,6 @@ function getRollupConfig(config) {
       }),
       postcss({
         autoModules: true,
-      }),
-      typescript({
-        tsconfig,
-        abortOnError: false,
-        clean: false,
-        check: false,
       }),
       ENV.isProdEnv() &&
         strip({
@@ -41,11 +47,6 @@ function getRollupConfig(config) {
         }),
     ],
     onwarn: (warning, warn) => {
-      console.info(
-        "warning:",
-        warning.code,
-        IGNORE_WARNING_CODE.indexOf(warning.code)
-      );
       if (IGNORE_WARNING_CODE.indexOf(warning.code) != -1) return;
       if (warning.code === "NON_EXISTENT_EXPORT")
         throw new Error(warning.message);
@@ -56,6 +57,7 @@ function getRollupConfig(config) {
   const outputOptions = {
     file: outputFile,
     format: bundleType,
+    sourcemap: true,
     plugins: [ENV.isProdEnv() && terser()],
   };
 
@@ -73,6 +75,7 @@ function getRollupConfig(config) {
 }
 
 function build(configs, isWatch) {
+  let isFristBuild = true;
   return new Promise((resolve) => {
     let buildSuccessNum = 0;
     let buildTotal = configs.length;
@@ -88,6 +91,10 @@ function build(configs, isWatch) {
         Util.showBuildLog("全部编译结束");
         if (isWatch) {
           Util.showBuildLog("已开启热更新,监听中...");
+          if (isFristBuild) {
+            shell.exec(`yarn rs-start`, { async: true });
+            isFristBuild = false;
+          }
         }
         resolve();
       }

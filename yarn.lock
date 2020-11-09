@@ -277,6 +277,13 @@
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.12.5.tgz#b4af32ddd473c0bfa643bd7ff0728b8e71b81ea0"
   integrity sha512-FVM6RZQ0mn2KCf1VUED7KepYeUWoVShczewOCfm3nzoBybaih51h+sYVVGthW9M6lPByEPTQf+xm27PBdlpwmQ==
 
+"@babel/plugin-external-helpers@^7.12.1":
+  version "7.12.1"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-external-helpers/-/plugin-external-helpers-7.12.1.tgz#df474775860b3b8bdfeaedd45596cd2c7f36a2be"
+  integrity sha512-5VBqan0daXhDSRjrq2miABuELRwWJWFdM42Jvs/CDuhp+Es+fW+ISA5l+co8d+9oN3WLz/N3VvzyeseL3AvjxA==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.10.4"
+
 "@babel/plugin-proposal-async-generator-functions@^7.12.1":
   version "7.12.1"
   resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-async-generator-functions/-/plugin-proposal-async-generator-functions-7.12.1.tgz#dc6c1170e27d8aca99ff65f4925bd06b1c90550e"
@@ -788,7 +795,7 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.10.4"
 
-"@babel/plugin-transform-runtime@7.12.1":
+"@babel/plugin-transform-runtime@7.12.1", "@babel/plugin-transform-runtime@^7.12.1":
   version "7.12.1"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-runtime/-/plugin-transform-runtime-7.12.1.tgz#04b792057eb460389ff6a4198e377614ea1e7ba5"
   integrity sha512-Ac/H6G9FEIkS2tXsZjL4RAdS3L3WHxci0usAnz7laPWUmFiGtj7tIASChqKZMHTSQTQY6xDbOq+V1/vIq3QrWg==
@@ -6708,6 +6715,11 @@ getpass@^0.1.1:
   dependencies:
     assert-plus "^1.0.0"
 
+git-cz@^4.7.1:
+  version "4.7.1"
+  resolved "https://registry.yarnpkg.com/git-cz/-/git-cz-4.7.1.tgz#90edaa8dba1ec8be689b22fbf8d006c44b21b31f"
+  integrity sha512-Emb/Xz/LcL3SGxA/PD6RUrhUT6m2v0O9nWTjwCBAoE2UXxj9HkJcfphL3RkePtiTNFkVZMk0q5EUfHnO7HAfiw==
+
 git-raw-commits@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/git-raw-commits/-/git-raw-commits-2.0.0.tgz#d92addf74440c14bcc5c83ecce3fb7f8a79118b5"
@@ -6777,7 +6789,7 @@ glob-to-regexp@^0.3.0:
   resolved "https://registry.yarnpkg.com/glob-to-regexp/-/glob-to-regexp-0.3.0.tgz#8c5a1494d2066c570cc3bfe4496175acc4d502ab"
   integrity sha1-jFoUlNIGbFcMw7/kSWF1rMTVAqs=
 
-glob@^7.0.3, glob@^7.1.1, glob@^7.1.2, glob@^7.1.3, glob@^7.1.4, glob@^7.1.6:
+glob@^7.0.0, glob@^7.0.3, glob@^7.1.1, glob@^7.1.2, glob@^7.1.3, glob@^7.1.4, glob@^7.1.6:
   version "7.1.6"
   resolved "https://registry.yarnpkg.com/glob/-/glob-7.1.6.tgz#141f33b81a7c2492e125594307480c46679278a6"
   integrity sha512-LwaxwyZ72Lk7vZINtNNrywX0ZuLyStrdDtabefZKAY5ZGJhVtgdznluResxNmPitE0SAO+O26sWTHeKSI2wMBA==
@@ -7483,6 +7495,11 @@ internal-slot@^1.0.2:
     es-abstract "^1.17.0-next.1"
     has "^1.0.3"
     side-channel "^1.0.2"
+
+interpret@^1.0.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.4.0.tgz#665ab8bc4da27a774a40584e812e3e0fa45b1a1e"
+  integrity sha512-agE4QfB2Lkp9uICn7BAqoscw4SZP9kTE2hxiFI3jBPmXJfdqiahTbUuKGsMoN2GtqL9AxhYioAcVvgsb1HvRbA==
 
 ip-regex@^2.1.0:
   version "2.1.0"
@@ -8520,6 +8537,11 @@ jsprim@^1.2.2:
   dependencies:
     array-includes "^3.1.1"
     object.assign "^4.1.1"
+
+keyboardjs@^2.6.4:
+  version "2.6.4"
+  resolved "https://registry.yarnpkg.com/keyboardjs/-/keyboardjs-2.6.4.tgz#28dccd9787c8f37e7c017df2f87294ca21143436"
+  integrity sha512-xDiNwiwH3KUqap++RFJiLAXzbvRB5Yw08xliuceOgLhM1o7g1puKKR9vWy6wp9H/Bi4VP0+SQMpiWXMWWmR6rA==
 
 killable@^1.0.1:
   version "1.0.1"
@@ -11129,7 +11151,15 @@ process@^0.11.10:
   resolved "https://registry.yarnpkg.com/process/-/process-0.11.10.tgz#7332300e840161bda3e69a1d1d91a7d4bc16f182"
   integrity sha1-czIwDoQBYb2j5podHZGn1LwW8YI=
 
-progress@^2.0.0:
+progress-bar-webpack-plugin@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/progress-bar-webpack-plugin/-/progress-bar-webpack-plugin-2.1.0.tgz#f7f8c8c461f40b87a8ff168443f494289b07ee65"
+  integrity sha512-UtlZbnxpYk1wufEWfhIjRn2U52zlY38uvnzFhs8rRxJxC1hSqw88JNR2Mbpqq9Kix8L1nGb3uQ+/1BiUWbigAg==
+  dependencies:
+    chalk "^3.0.0"
+    progress "^2.0.3"
+
+progress@^2.0.0, progress@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
@@ -11650,6 +11680,13 @@ readdirp@~3.5.0:
   dependencies:
     picomatch "^2.2.1"
 
+rechoir@^0.6.2:
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/rechoir/-/rechoir-0.6.2.tgz#85204b54dba82d5742e28c96756ef43af50e3384"
+  integrity sha1-hSBLVNuoLVdC4oyWdW70OvUOM4Q=
+  dependencies:
+    resolve "^1.1.6"
+
 recursive-readdir@2.2.2:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/recursive-readdir/-/recursive-readdir-2.2.2.tgz#9946fb3274e1628de6e36b2f6714953b4845094f"
@@ -11917,7 +11954,7 @@ resolve@1.17.0:
   dependencies:
     path-parse "^1.0.6"
 
-resolve@1.18.1, resolve@^1.10.0, resolve@^1.12.0, resolve@^1.13.1, resolve@^1.14.2, resolve@^1.16.1, resolve@^1.17.0, resolve@^1.18.1, resolve@^1.3.2, resolve@^1.8.1:
+resolve@1.18.1, resolve@^1.1.6, resolve@^1.10.0, resolve@^1.12.0, resolve@^1.13.1, resolve@^1.14.2, resolve@^1.16.1, resolve@^1.17.0, resolve@^1.18.1, resolve@^1.3.2, resolve@^1.8.1:
   version "1.18.1"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.18.1.tgz#018fcb2c5b207d2a6424aee361c5a266da8f4130"
   integrity sha512-lDfCPaMKfOJXjy0dPayzPdF1phampNWr3qFCjAu+rw/qbQmr5jWH5xN2hwh9QKfw9E5v4hwV7A+jrCmL8yjjqA==
@@ -12040,6 +12077,13 @@ rollup-plugin-postcss@^3.1.8:
     rollup-pluginutils "^2.8.2"
     safe-identifier "^0.4.1"
     style-inject "^0.3.0"
+
+rollup-plugin-progress@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-progress/-/rollup-plugin-progress-1.1.2.tgz#5c1dfe7c50f654906bc34d167d5512ee1a4b72d5"
+  integrity sha512-6ehSZOMTZdAlRpe45kf56BnIOsDYC2GKWhGlK/Dh/Ae/AMUneMDyKdiv9ZlRrW/HVc986frTZcc2Zka+oF6W7Q==
+  dependencies:
+    chalk "^2.4.2"
 
 rollup-plugin-terser@^5.3.1:
   version "5.3.1"
@@ -12401,6 +12445,15 @@ shell-quote@1.7.2:
   version "1.7.2"
   resolved "https://registry.yarnpkg.com/shell-quote/-/shell-quote-1.7.2.tgz#67a7d02c76c9da24f99d20808fcaded0e0e04be2"
   integrity sha512-mRz/m/JVscCrkMyPqHc/bczi3OQHkLTqXHEFu0zDhK/qfv3UcOA4SVmRCLmos4bhjr9ekVQubj/R7waKapmiQg==
+
+shelljs@^0.8.4:
+  version "0.8.4"
+  resolved "https://registry.yarnpkg.com/shelljs/-/shelljs-0.8.4.tgz#de7684feeb767f8716b326078a8a00875890e3c2"
+  integrity sha512-7gk3UZ9kOfPLIAbslLzyWeGiEqx9e3rxwZM0KE6EL8GlGwjym9Mrlx5/p33bWTu9YG6vcS4MBxYZDHYr5lr8BQ==
+  dependencies:
+    glob "^7.0.0"
+    interpret "^1.0.0"
+    rechoir "^0.6.2"
 
 shellwords@^0.1.1:
   version "0.1.1"

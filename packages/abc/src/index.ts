@@ -3,11 +3,17 @@ import { edf } from "@test/edf";
 import { test } from "./test";
 // import { JsxTest } from "./jsxTest";
 
-export function abc() {
+export * from "./environment";
+// export * from "./keyboard-util";
+export * from "./unique-event";
+// export * from "./state-machine";
+
+export const abc = () => {
   const isBool = isArray([]);
   console.info("isBool:", isBool);
-  console.info("===", edf());
-  console.info("=2=3322=", test());
+  console.info("==11=", edf());
+  console.info("=112=3322=", test());
+  const a = Array.from([1, 2, 3]);
 
   // // 我是注释
   // const anc = [1, 2, 3].map((n) => n + 1);
@@ -22,13 +28,13 @@ export function abc() {
   //   console.info("====");
   // });
 
-  return "我来敖34包" + edf() + test() + isBool + new ATest().bTest?.a;
-}
+  return "我3第4包" + edf() + a + test() + isBool + new ATest().bTest?.a;
+};
 
 class ATest {
-  bTest?: BTest | undefined;
+  bTest?: BTest | undefined = new BTest();
 }
 
 class BTest {
-  a: number | undefined;
+  a: number | undefined = 123;
 }
