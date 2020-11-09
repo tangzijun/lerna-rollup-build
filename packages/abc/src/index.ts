@@ -1,6 +1,5 @@
 import { isArray } from "lodash";
 import { edf } from "@test/edf";
-import { test } from "./test";
 // import { JsxTest } from "./jsxTest";
 
 export * from "./environment";
@@ -12,7 +11,7 @@ export const abc = () => {
   const isBool = isArray([]);
   console.info("isBool:", isBool);
   console.info("==11=", edf());
-  console.info("=112=3322=", test());
+  console.info("=112=3322=");
   const a = Array.from([1, 2, 3]);
 
   // // 我是注释
@@ -22,13 +21,12 @@ export const abc = () => {
   // console.info("anc", anc);
   // console.info("JsxTest:", JsxTest);
   console.info("====");
-  test();
   debugger;
   // document.addEventListener("click", () => {
   //   console.info("====");
   // });
 
-  return "我3第4包" + edf() + a + test() + isBool + new ATest().bTest?.a;
+  return "我3第4包" + edf() + a + isBool + new ATest().bTest?.a;
 };
 
 class ATest {
