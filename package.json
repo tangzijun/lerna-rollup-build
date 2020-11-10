@@ -11,11 +11,11 @@
     "url": "https://github.com/tangzijun/lerna-rollup-build.git"
   },
   "scripts": {
+    "test": "jest --config ./scripts/jest.config.js",
+    "testc": "jest --config ./scripts/jest.config.js --coverage",
     "dev": "node scripts/build.js --watch --env dev",
     "prod": "node scripts/build.js --env prod",
     "rs-start": "react-scripts start",
-    "test": "jest --config ./scripts/jest.config.js",
-    "testc": "jest --config ./scripts/jest.config.js --coverage",
     "eject": "react-scripts eject",
     "commit": "git add . && git-cz",
     "push": "git push",
@@ -43,6 +43,7 @@
     "@rollup/plugin-typescript": "^6.1.0",
     "@rollup/pluginutils": "^4.1.0",
     "@solidoc/vm-common": "^0.4.17",
+    "@solidoc/vm-dependencies": "^0.0.5",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",

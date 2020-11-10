@@ -2317,10 +2317,55 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
+"@solidoc/component@0.9.20":
+  version "0.9.20"
+  resolved "https://npm.pkg.github.com/download/@solidoc/component/0.9.20/9fe1e73bc6d92fc4dac8c91a244b5e3b9e7b364afc6b5b7b5733fe0cbfd48d59#00fbaef2e3c918e1e47bc498ddca2b35b281ddc3"
+  integrity sha512-EMasl7Vey/bxeDDdEw/lNuQjOldMvLDpEWuzgj7JFRN/AG6ZNkBbz/Ra0Tl3v84I4XGIxNPKeKrI5Zd5D0x5rA==
+
+"@solidoc/vm-base@0.7.20":
+  version "0.7.20"
+  resolved "https://npm.pkg.github.com/download/@solidoc/vm-base/0.7.20/df14f53f693afdaf2bca8864c248b3cd541845f752c17ace853d2ea07f131468#d12235d5b92ac2d599a6916680a246624c889f13"
+  integrity sha512-HtmuZlUBOV9EZPyhv+67HDCNtGzzyFTRhfyTjj1QUOWz04v2MNhCj/k8q4JqH9G7L85ALjI8KykxRmHFdRd3eA==
+
+"@solidoc/vm-common@0.4.20":
+  version "0.4.20"
+  resolved "https://npm.pkg.github.com/download/@solidoc/vm-common/0.4.20/b9fa2e8b50fdb424c4610cd061ab85e4ee2d77491c9a8e2aa7f21a0acc186406#91d9c018334358e5f55a2a9be6394386825af338"
+  integrity sha512-SdRQ9YO1juCaOFT5SQS24KniwkTxPoGYxEPYh9mQr1YtaZ9uNHxRXfLJKu3qesPkTehL0VI6EihocB6rqPkoJg==
+
 "@solidoc/vm-common@^0.4.17":
   version "0.4.17"
   resolved "https://npm.pkg.github.com/download/@solidoc/vm-common/0.4.17/ac5688569b364dc1ccfa33e464919c830dcb842a78a26867ea83105d5943970b#3c3deaf8905afca90e1c8efa2139148c50cf599b"
   integrity sha512-yUpGbKrxFmpg/yCE5A5ihsJBb3KX1p57TfsVv3c+UCr2hmqO1DaZHnwQnkV1c+tWBBBygGFih9yl55zqtjLkPg==
+
+"@solidoc/vm-dependencies@^0.0.5":
+  version "0.0.5"
+  resolved "https://npm.pkg.github.com/download/@solidoc/vm-dependencies/0.0.5/86e657d982698e0e264c4ed526c63329d296689a293c214b9212f98dd5b294e4#f58ba15407b95acc5129cb18720d4b46ad4c6ab4"
+  integrity sha512-I8eoRA8ZuXKT+RC/tTpnIJpXPTMcZP17XtPct8AQo/KTK8mtSIRRocuKj3hxQeoaEj/rq9UFWgeEDfi3U/OTVw==
+  dependencies:
+    "@solidoc/component" "0.9.20"
+    "@solidoc/vm-base" "0.7.20"
+    "@solidoc/vm-common" "0.4.20"
+    "@solidoc/vm-doc" "0.10.20"
+    "@solidoc/vm-sidebar" "0.7.20"
+    "@solidoc/vm-table" "0.14.20"
+    immer "^5.3.6"
+    is-plain-object "^5.0.0"
+    lodash "^4.17.20"
+
+"@solidoc/vm-doc@0.10.20":
+  version "0.10.20"
+  resolved "https://npm.pkg.github.com/download/@solidoc/vm-doc/0.10.20/a75e86cfdf62d1c56cc7b36af4cbccdd99c69611bf0d2bdb52005006314aa56a#022d8c322f18baed2c4dd320538c68c9c3f71558"
+  integrity sha512-AyDAqbSskkx5p/N54jpmwG4X/+7fDcp4vCPZkGdgTVa+nCWrlT6UeBh5sBS8CDgVBJSUj/15fmEe1klb+37QZg==
+
+"@solidoc/vm-sidebar@0.7.20":
+  version "0.7.20"
+  resolved "https://npm.pkg.github.com/download/@solidoc/vm-sidebar/0.7.20/498c38e41ed9e944df5c8d94c208ee72b7378176c3b2a0974976af8078be2306#dd9ca1a422887d08a6cfed46400cb0e1f390573e"
+  integrity sha512-+1ZIZ0QQuMPcN56HFiDYytbA3xzmiE3w0R7JOLPAggB0uvj0dXnu8nMeLWkc28xkwxda/X//z8WT83+eZpZqpw==
+
+"@solidoc/vm-table@0.14.20":
+  version "0.14.20"
+  resolved "https://npm.pkg.github.com/download/@solidoc/vm-table/0.14.20/c0ddbb66e3a2b57205a35f834e0939cc62b259124f10981ebdf7d727a05f92ff#2758b5f7236f85bc62dfe0c248a5d1995b486e17"
+  integrity sha512-mHKeXMjuCkFAvA3ynDJpr6W5RHb+nIo6yC2S3UyTHKiqNelnWVVJWsFnreIzWnK3MtzQaaeJkK4Wv+jF0wwqsQ==
 
 "@surma/rollup-plugin-off-main-thread@^1.1.1":
   version "1.4.1"
@@ -7324,7 +7369,7 @@ immer@7.0.9:
   resolved "https://registry.yarnpkg.com/immer/-/immer-7.0.9.tgz#28e7552c21d39dd76feccd2b800b7bc86ee4a62e"
   integrity sha512-Vs/gxoM4DqNAYR7pugIxi0Xc8XAun/uy7AQu4fLLqaTBHxjOP9pJ266Q9MWA/ly4z6rAFZbvViOtihxUZ7O28A==
 
-immer@^5.0.0:
+immer@^5.0.0, immer@^5.3.6:
   version "5.3.6"
   resolved "https://registry.yarnpkg.com/immer/-/immer-5.3.6.tgz#51eab8cbbeb13075fe2244250f221598818cac04"
   integrity sha512-pqWQ6ozVfNOUDjrLfm4Pt7q4Q12cGw2HUZgry4Q5+Myxu9nmHRkWBpI0J4+MK0AxbdFtdMTwEGVl7Vd+vEiK+A==
