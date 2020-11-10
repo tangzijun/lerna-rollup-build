@@ -5,7 +5,6 @@ const typescript = require("rollup-plugin-typescript2");
 const { terser } = require("rollup-plugin-terser");
 const progress = require("rollup-plugin-progress");
 const postcss = require("rollup-plugin-postcss");
-const babelConfig = require("./babel.config");
 const ENV = require("./env");
 const Util = require("./util");
 const shell = require("shelljs");
@@ -34,7 +33,20 @@ function getRollupConfig(config) {
         babelHelpers: "bundled",
         exclude: "node_modules/**",
         extensions: EXTENSIONS,
-        ...babelConfig,
+        presets: [
+          [
+            "@babel/preset-env",
+            {
+              modules: false,
+              targets: {
+                esmodules: true,
+              },
+            },
+          ],
+          "@babel/preset-typescript",
+          "@babel/preset-react",
+        ],
+        plugins: [],
       }),
       postcss({
         autoModules: true,

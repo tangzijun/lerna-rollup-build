@@ -2317,6 +2317,11 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
+"@solidoc/vm-common@^0.4.17":
+  version "0.4.17"
+  resolved "https://npm.pkg.github.com/download/@solidoc/vm-common/0.4.17/ac5688569b364dc1ccfa33e464919c830dcb842a78a26867ea83105d5943970b#3c3deaf8905afca90e1c8efa2139148c50cf599b"
+  integrity sha512-yUpGbKrxFmpg/yCE5A5ihsJBb3KX1p57TfsVv3c+UCr2hmqO1DaZHnwQnkV1c+tWBBBygGFih9yl55zqtjLkPg==
+
 "@surma/rollup-plugin-off-main-thread@^1.1.1":
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/@surma/rollup-plugin-off-main-thread/-/rollup-plugin-off-main-thread-1.4.1.tgz#bf1343e5a926e5a1da55e3affd761dda4ce143ef"

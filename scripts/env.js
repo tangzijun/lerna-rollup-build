@@ -3,6 +3,7 @@ const Util = require("./util");
 const prod = "prod";
 const dev = "dev";
 
+console.info("NODE_ENV:", process.env.NODE_ENV);
 const setEnv = (env) => {
   if (env === dev) {
     setEnvToDev();

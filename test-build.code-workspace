@@ -5,6 +5,28 @@
     }
   ],
   "settings": {
+    "files.exclude": {
+      "**/.idea": true,
+      "**/.umi": true,
+      "**/.vscode": true,
+      "**/node_modules": true,
+      ".VSCodeCounter": true,
+      ".yarn": true,
+      "build": true,
+      "**/deploy": true,
+      "configs": true,
+      "public": true,
+      // "scripts": true,
+      "coverage": true,
+      "editor-old": true,
+      ".github": true,
+      "LICENSE": true,
+      ".yarnrc": true,
+      ".npmrc": true,
+      "lerna.json": true,
+      ".gitignore": true,
+      "tsconfig.json": true
+    },
     "editor.fontSize": 14,
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
